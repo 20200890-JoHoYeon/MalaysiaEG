@@ -13,6 +13,21 @@ Back-End: Node.js
 MalaysiaEG Project = Complete :laughing: <br />
 Deploy Web Site: https://edumalaysia.kr/
 
+## Project Start
+```zsh
+$ npm install
+$ npm install nodemon
+$ npm start
+```
+## User Connect
+```zsh
+$ localhost:3000/
+```
+## Admin Connect
+```zsh
+$  localhost:3000/admin/
+```
+
 ## Development Story :question:
 
 It's a project started by an external development group. <br />
