@@ -8,7 +8,7 @@ Development of the Malaysian English Camp Company's homepage
 Front-End: HTML, CSS, JavaScript <br />
 Back-End: Node.js
 
-# wonnytopper Project Results :exclamation:
+# MalaysiaEG Project Results :exclamation:
 
 MalaysiaEG Project = Complete :laughing: <br />
 Deploy Web Site: https://edumalaysia.kr/
