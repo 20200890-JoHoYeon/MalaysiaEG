@@ -21,11 +21,11 @@ $ npm start
 ```
 ## User Connect
 ```zsh
-$ localhost:3000/
+localhost:3000/
 ```
 ## Admin Connect
 ```zsh
-$  localhost:3000/admin/
+localhost:3000/admin/
 ```
 
 ## Development Story :question:
