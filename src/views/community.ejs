@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('head') %>
+</head>
+
+<body>
+    <div class="wrap">
+        <%- include('header') %>
+
+            <div class="container">
+                <div class="page-banner">
+                    <h3 class="main-title">커뮤니티</h3>
+                </div>
+
+                <div class="width page-section">
+                    <ul class="tab type01 community-tab">
+                        <li id="qna" class="active">묻고 답하기 </li>
+                        <li id="presentation">설명회 요청 </li>
+                        <li id="review">참가자 리뷰</li>
+                    </ul>
+                </div>
+
+                <section class="page-section-bottom">
+
+                    <div class="width">
+                        <!-- 묻고 답하기 -->
+                        <div data-tab="qna" class="active tab-content community-table-area">
+                            <a href="/community_write?type=qna" class="btn type02 small radius write-page-btn">글쓰기</a>
+                            <table class="table type01">
+                                <colgroup>
+                                    <col style="width: 7%;">
+                                    </col>
+                                    <col style="width: 43%;">
+                                    </col>
+                                    <col style="width: 15%;">
+                                    </col>
+                                    <col style="width: 15%;">
+                                    </col>
+                                    <col style="width: 15%;">
+                                    </col>
+                                </colgroup>
+                                <thead class="mo-community-thead">
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th>작성자</th>
+                                    <th>작성일</th>
+                                    <th>상태</th>
+                                </thead>
+                                <tbody class="qna-tbody pc-community-tbody">
+                                </tbody>
+
+                                <tbody class="mo-qna-tbody mo-community-tbody">
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <!-- //묻고 답하기 -->
+
+                        <!-- 설명회 요청 -->
+                        <div data-tab="presentation" class="tab-content community-table-area">
+                            <a href="/community_write?type=presentation"
+                                class="btn type02 small radius write-page-btn">글쓰기</a>
+                            <table class="table type01">
+                                <colgroup>
+                                    <col style="width: 7%;">
+                                    </col>
+                                    <col style="width: 35%;">
+                                    </col>
+                                    <col style="width: 15%;">
+                                    </col>
+                                    <col style="width: 20%;">
+                                    </col>
+                                    <col style="width: 15%;">
+                                    </col>
+                                </colgroup>
+                                <thead class="mo-community-thead">
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th>기관명</th>
+                                    <th>작성일</th>
+                                    <th>상태</th>
+                                </thead>
+
+                                <tbody class="presentation-tbody pc-community-tbody">
+                                </tbody>
+
+                                <tbody class="mo-presentation-tbody mo-community-tbody">
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!-- //설명회 요청 -->
+
+                        <!-- 참가자 리뷰 -->
+                        <div data-tab="review" class="tab-content community-table-area">
+                            <table class="table type01">
+                                <colgroup>
+                                    <col style="width: 7%;">
+                                    </col>
+                                    <col style="width: 55%;">
+                                    </col>
+                                    <col style="width: 15%;">
+                                    </col>
+                                    <col style="width: 15%;">
+                                    </col>
+                                </colgroup>
+                                <thead class="mo-community-thead">
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th>작성자</th>
+                                    <th>작성일</th>
+                                </thead>
+
+                                <tbody class="review-tbody pc-community-tbody">
+                                </tbody>
+
+                                <tbody class="mo-review-tbody mo-community-tbody">
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                        <!-- //참가자 리뷰 -->
+
+                        <div class="page type01">
+                            <div><i class="ico start"></i></div>
+                            <div><i class="ico prev"></i></div>
+                            <ul class="flex-layout">
+                            </ul>
+                            <div><i class="ico next"></i></div>
+                            <div><i class="ico end"></i></div>
+                        </div>
+
+                    </div>
+
+                </section>
+                <%- include('footer') %>
+            </div>
+    </div>
+
+    <!-- popup -->
+    <div class="pwd-popup-wrap popup-wrap">
+        <div class="popup-contatiner">
+            <div class="apply-popup-area pwd-popup-area popup-center">
+                <div class="popup-header-area">
+                    <h3>비밀글 보기 </h3>
+                    <div class="popup-close"><i class="ico close"></i></div>
+                </div>
+                <div class="popup-body-area">
+                    <p class="explanation-text">이 글은 비밀글입니다. 비밀번호를 입력해 주세요. </p>
+                    <input id="secretPwd" type="password" class="input-text" maxlength="4">
+
+                    <div class="popup-btn-area">
+                        <button class="btn type01 small radius pwd-check">확인</button>
+                        <button class="btn type03 small radius popup-close">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //popup -->
+    <script src="/user/assets/js/ui.js"></script>
+    <script src="/user/assets/js/common.js"></script>
+    <script src="/user/assets/js/community/community.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>말레 EG 어드민</title>
+    <link rel="shortcut icon" href="/user/assets/images/icon/admin.ico" />
+
+    
+    <!-- Custom fonts for this template -->
+    <link
+      href="/admin/assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Styles for this page -->
+    <link href="/admin/assets/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link
+      href="/admin/assets/vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/admin/assets/css/style.css" />
+  </head>
+
+ <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+
+      <%- include('common/sidebar') %>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <%- include('common/topbar') %>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+            <div class="container-fluid">
+              <!-- Page Heading -->
+              <div class="border-bottom-primary mb-4">
+                <div class="main-title">
+                  <h1 class="mb-2 text-gray-800">갤러리 등록</h1>
+                </div>
+                <h6 class="page-adress">
+                  갤러리 관리 > 갤러리 등록
+                </h6>
+              </div>
+
+              <section role="main" class="content-body register-content-body">
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                  <h6 class="float-right">
+                    <span class="star">*</span>
+                    는 필수 입력값
+                  </h6>
+                  <h4 class="register-sub-title">■ 갤러리 기본정보</h4>
+                  <table class="register table table-bordered">
+                    <tr>
+                      <td width="20%" class="table-title-td">카테고리<span class="star">*</span></td>
+                      <td width="30%">
+                        <select name="category" id="category" class="form-control select" required>
+                          <option value="">--선택--</option>
+                          <option value=1>캠퍼스생활</option>
+                          <option value=2>체육/특별활동</option>
+                          <option value=3>현지라이프</option>
+                        </select>
+                      </td>
+                      <td width="20%" class="table-title-td">노출여부<span class="star">*</span></td>
+                      <td width="30%">
+                        <div class="col-md-9 filter-inputs">
+                          <div class="filter-answer">
+                            <label class="radio-button-filter">
+                              <input type="radio" name="exposure_yn" value="Y" checked>
+                              Y
+                            </label>
+                            <label class="radio-button-filter">
+                              <input type="radio" name="exposure_yn" value="N">
+                              N
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- <tr class="sub-category-tr hidden">
+                      <td width="20%" class="table-title-td">카테고리 중분류<span class="star">*</span></td>
+                      <td width="30%">
+                        <select name="sub_category" id="sub_category" class="form-control select">
+                          <option value="">--선택--</option>
+                          <option value="3">풍선장식</option>
+                          <option value="1">입학식/졸업식</option>
+                          <option value="2">학교행사</option>
+                          <option value="4">기업행사</option>
+                          <option value="5">입구풍선아치</option>
+                          <option value="6">원형아치</option>
+                          <option value="7">발표회</option>
+                          <option value="8">생일,기념일파티</option>
+                        </select>
+                      </td>
+                    </tr> -->
+                    <tr>
+                      <td width="20%" class="table-title-td">제목<span class="star">*</span></td>
+                      <td width="30%" colspan="3">
+                        <input placeholder="제목을 입력해주세요" type="text" class="form-control" name="title" id="title" required />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="table-title-td">형식<span class="star">*</span></td>
+                      <td width="30%" colspan="3">
+                        <div class="col-md-9 filter-inputs">
+                          <div class="filter-answer">
+                            <label class="radio-button-filter">
+                              <input type="radio" name="form" value="1" checked onchange="toggleForm('image')">
+                              이미지
+                            </label>
+                            <label class="radio-button-filter">
+                              <input type="radio" name="form" value="2" onchange="toggleForm('video')">
+                              동영상
+                            </label>
+                            
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="table-title-td">등록일<span class="star">*</span></td>
+                      <td width="30%">
+                        <div class="input-date">
+                          <div class="input-daterange input-date date-pick">
+                            <input type="text" class="form-control daterange" id="start_date" autocomplete="off" />
+                            <span class="input-group-addon">
+                              <i class="fa fa-calendar calender-icon"></i>
+                            </span>
+                          </div>
+                          <div class="col-md-6 filter-date">
+                            <select class="form-control hour" id="hour"></select> <span class="mlr-5">:</span> <select
+                              class="form-control minute" id="minute"></select> <span class="mlr-5">:</span> <select
+                              class="form-control second" id="second"></select>
+                          </div>
+                        </div>
+                      </td>
+                      <td width="20%" class="table-title-td">최종 수정일</td>
+                      <td width="30%">-
+                      </td>
+                    </tr>
+                    </td>
+                    </tr>
+                  </table>
+
+                  <h4 id="register-sub-title" class="register-sub-title">■ 이미지 등록</h4>
+                  <table id="imageForm" class="register table table-bordered">
+                    <tr>
+                      <td width="20%" class="table-title-td">대표 이미지<span class="star">*</span>
+                        <div>(최대 1개)</div>
+                      </td>
+                      <td width="40%" colspan="2">
+                        <label for="file1" class="file-input-label">파일 선택</label>
+                        <input type="file" accept=".jpg, .jpeg, .png" id="file1" class="file-input"
+                          name="productImgArr[]" required />
+                        <span class="file-name"></span>
+                        <a class="cancel-btn hidden">X</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="20%" rowspan="4" class="table-title-td">추가 이미지<div>(최대 4개)</div>
+                      </td>
+                      <td width="5%" class="align-c">1</td>
+                      <td width="95%">
+                        <label for="file2" class="file-input-label">파일 선택</label>
+                        <input type="file" accept=".jpg, .jpeg, .png" id="file2" class="file-input"
+                          name="productImgArr[]" />
+                        <span class="file-name"></span>
+                        <a class="cancel-btn hidden">X</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="5%" class="align-c">2</td>
+                      <td width="95%">
+                        <label for="file3" class="file-input-label">파일 선택</label>
+                        <input type="file" accept=".jpg, .jpeg, .png" id="file3" class="file-input"
+                          name="productImgArr[]" />
+                        <span class="file-name"></span>
+                        <a class="cancel-btn hidden">X</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="5%" class="align-c">3</td>
+                      <td width="95%">
+                        <label for="file4" class="file-input-label">파일 선택</label>
+                        <input type="file" accept=".jpg, .jpeg, .png" id="file4" class="file-input"
+                          name="productImgArr[]" />
+                        <span class="file-name"></span>
+                        <a class="cancel-btn hidden"">X</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td width=" 5%" class="align-c">4
+                      </td>
+                      <td width="95%">
+                        <label for="file5" class="file-input-label">파일 선택</label>
+                        <input type="file" accept=".jpg, .jpeg, .png" id="file5" class="file-input"
+                          name="productImgArr[]" />
+                        <span class="file-name"></span>
+                        <a class="cancel-btn hidden">X</a>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <table id="videoForm" class="hidden register table table-bordered">
+                    <tr>
+                      <td width="20%" rowspan="4" class="table-title-td">URL   <span class="star">*</span>
+                      </td>
+                     
+                       <td width="80%" colspan="2">
+                        <input id="video_url"  placeholder="링크를 입력해주세요" type="text" class="form-control" name="title" id="title" required />
+                      </td>
+                    </tr>
+                  </table>
+
+                  <h4 class="register-sub-title">■ 기타 정보</h4>
+                  <table class="register table table-bordered">
+                    <tr>
+                      <td width="20%" class="table-title-td">비고
+                      </td>
+                      <td width="80%" colspan="2">
+                       <input id="note" placeholder="내용을 입력해주세요" type="text" class="form-control" name="title" id="title" required />
+                      </td>
+                    </tr>
+                  </table>
+
+                  <div class="admin-btn-tool ib detail-bottom-btn">
+                    <button type="button" id="to_board_btn" class="btn btn-primary btn-100">
+                      취소
+                    </button>
+                    <button type="button" id="register_btn" class="btn btn-primary btn-100">
+                      등록
+                    </button>
+                  </div>
+                </form>
+              </section>
+            </div>
+        </div>
+        <!-- End of Main Content -->
+        <!-- Footer -->
+        <%- include('common/footer') %>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
+    <script src="/admin/assets/js/common.js"></script>
+    <script src="/admin/assets/js/gallery_register.js"></script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/admin/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/admin/assets/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="/admin/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/admin/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/admin/assets/js/demo/datatables-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
+
+   
+  </body>
+</html>

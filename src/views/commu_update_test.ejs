@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="author" content="mars-sequel" />
+
+  <title>- 컨텐츠 등록</title>
+
+  <!-- Custom fonts for this template -->
+  <link href="/admin/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet" />
+
+  <!-- Styles for this page -->
+  <link href="/admin/assets/css/sb-admin-2.min.css" rel="stylesheet" />
+  <link href="/admin/assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/admin/assets/css/style.css" />
+</head>
+
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+              <!-- Page Heading -->
+              <div class="border-bottom-primary mb-4">
+                <div class="main-title">
+                  <h1 class="mb-2 text-gray-800">컨텐츠 등록</h1>
+                </div>
+                <h6 class="page-adress">
+                  컨텐츠 관리 > 컨텐츠 관리 > 컨텐츠 등록
+                </h6>
+              </div>
+
+              <section role="main" class="content-body register-content-body">
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                  <h6 class="float-right">
+                    <span class="star">*</span>
+                    는 필수 입력값
+                  </h6>
+                  <h4 class="register-sub-title">■ 컨텐츠 기본정보</h4>
+                  <table class="register table table-bordered">
+                    <tr>
+                      <td width="20%" class="table-title-td">카테고리<span class="star">*</span></td>
+                      <td width="30%">
+                        <select name="category" id="category" class="form-control select" required>
+                          <option value="">--선택--</option>
+                          <option value=1>묻고 답하기</option>
+                          <option value=2>설명회 요청</option>
+                        </select>
+                      </td>
+                      <td width="20%" class="table-title-td">비밀번호여부<span class="star">*</span></td>
+                      <td width="30%">
+                        <div class="col-md-9 filter-inputs">
+                          <div class="filter-answer">
+                            <label class="radio-button-filter">
+                              <input type="radio" name="secret_yn" value="Y" checked>
+                              공개
+                            </label>
+                            <label class="radio-button-filter">
+                              <input type="radio" name="secret_yn" value="N">
+                              비공개
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      
+                    </tr>
+                    <tr>
+                      <td width="20%" class="table-title-td">비밀번호<span class="star">*</span></td>
+                      <td width="30%" colspan="3">
+                        <input type="text" class="form-control" name="password" id="password" required />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="table-title-td">제목<span class="star">*</span></td>
+                      <td width="30%" colspan="3">
+                        <input type="text" class="form-control" name="title" id="title" required />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="20%" class="table-title-td">등록일<span class="star">*</span></td>
+                      <td width="30%">
+                        <div class="input-date">
+                          <div class="input-daterange input-date date-pick">
+                            <input type="text" class="form-control daterange" id="start_date" autocomplete="off" />
+                            <span class="input-group-addon">
+                              <i class="fa fa-calendar calender-icon"></i>
+                            </span>
+                          </div>
+                          <div class="col-md-6 filter-date">
+                            <select class="form-control hour" id="hour"></select> <span class="mlr-5">:</span> <select
+                              class="form-control minute" id="minute"></select> <span class="mlr-5">:</span> <select
+                              class="form-control second" id="second"></select>
+                          </div>
+                        </div>
+                      </td>
+                      <td width="20%" class="table-title-td">수정일</td>
+                      <td width="30%">-
+                      </td>
+                    </tr>
+                    </td>
+                    </tr>
+                  </table>
+
+                  <h4 class="register-sub-title">■ 이미지 등록</h4>
+                  <table class="register table table-bordered">
+                    <tr>
+                      <td width="20%" class="table-title-td">대표 이미지<span class="star">*</span>
+                        <div>(최대 1개)</div>
+                      </td>
+                      <td width="40%" colspan="2">
+                        <label for="file1" class="file-input-label">파일 선택</label>
+                        <input type="file" accept=".jpg, .jpeg, .png" id="file1" class="file-input"
+                          name="productImgArr[]" required />
+                        <span class="file-name"></span>
+                        <a class="cancel-btn hidden">X</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="20%" rowspan="4" class="table-title-td">추가 이미지<div>(최대 4개)</div>
+                      </td>
+                      <td width="5%" class="align-c">1</td>
+                      <td width="95%">
+                        <label for="file2" class="file-input-label">파일 선택</label>
+                        <input type="file" accept=".jpg, .jpeg, .png" id="file2" class="file-input"
+                          name="productImgArr[]" />
+                        <span class="file-name"></span>
+                        <a class="cancel-btn hidden">X</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="5%" class="align-c">2</td>
+                      <td width="95%">
+                        <label for="file3" class="file-input-label">파일 선택</label>
+                        <input type="file" accept=".jpg, .jpeg, .png" id="file3" class="file-input"
+                          name="productImgArr[]" />
+                        <span class="file-name"></span>
+                        <a class="cancel-btn hidden">X</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="5%" class="align-c">3</td>
+                      <td width="95%">
+                        <label for="file4" class="file-input-label">파일 선택</label>
+                        <input type="file" accept=".jpg, .jpeg, .png" id="file4" class="file-input"
+                          name="productImgArr[]" />
+                        <span class="file-name"></span>
+                        <a class="cancel-btn hidden"">X</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td width=" 5%" class="align-c">4
+                      </td>
+                      <td width="95%">
+                        <label for="file5" class="file-input-label">파일 선택</label>
+                        <input type="file" accept=".jpg, .jpeg, .png" id="file5" class="file-input"
+                          name="productImgArr[]" />
+                        <span class="file-name"></span>
+                        <a class="cancel-btn hidden">X</a>
+                      </td>
+                    </tr>
+                    
+                  </table>
+
+                  <h4 class="register-sub-title">■ 기타 정보</h4>
+                  <table class="register table table-bordered">
+                    <tr>
+                      <td width="20%" class="table-title-td">내용
+                      </td>
+                      <td width="80%" colspan="2">
+                        <textarea id="content" name="content" class="form-control note" maxlength="300"></textarea>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <div class="admin-btn-tool ib detail-bottom-btn">
+                    <button type="button" id="to_board_btn" class="btn btn-primary btn-100">
+                      목록
+                    </button>
+                    <button type="button" id="register_btn" class="btn btn-primary btn-100">
+                      등록
+                    </button>
+                  </div>
+                </form>
+              </section>
+            </div>
+        </div>
+
+        <!-- Footer -->
+          <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
+  <script src="/admin/assets/js/common.js"></script>
+  <script>
+    let fileId = [];
+const fileNameElArr = document.getElementsByClassName("file-name");
+const cancelElArr = document.getElementsByClassName("cancel-btn");
+const fileInputElArr = document.getElementsByName("productImgArr[]");
+let now = dayjs();
+let selectDateTime = now.format("YYYY-MM-DD HH:mm:ss");
+
+$(document).ready(function () {
+  $('.date-pick').datepicker({
+    dateFormat: 'yy-mm-dd',
+    format: 'yyyy-mm-dd',
+    autoclose: true,
+    todayHighlight: true,
+    placement: 'bottom',
+    orientation: 'auto bottom',
+    templates: {
+      leftArrow: '<i class="fa fa-angle-left"></i>',
+      rightArrow: '<i class="fa fa-angle-right"></i>'
+    },
+    endDate: new Date(),
+  })
+
+  $('#dataTable').DataTable()
+
+  for (let i = 0; i < cancelElArr.length; i++) {
+    fileInputElArr[i].addEventListener("change", function () { uploadFile(i) });
+    $(cancelElArr[i]).click(function () {
+      fileInputElArr[i].value = "";
+      fileNameElArr[i].textContent = "";
+      cancelElArr[i].style.display = "none";
+      fileId[i] = null;
+      deleteFile(fileId[i]);
+    });
+  }
+
+  for (let i = 0; i < 24; i++) {
+    let hour = i.toString().padStart(2, "0");
+    $("#hour").append("<option value='" + hour + "'>" + hour + "</option>");
+  }
+  for (let i = 0; i < 60; i++) {
+    let minute = i.toString().padStart(2, "0");
+    $("#minute").append("<option value='" + minute + "'>" + minute + "</option>");
+  }
+  for (let i = 0; i < 60; i++) {
+    let second = i.toString().padStart(2, "0");
+    $("#second").append("<option value='" + second + "'>" + second + "</option>");
+  }
+
+  $("#start_date").val(now.format("YYYY-MM-DD"));
+  $("#hour").val(now.format("HH"));
+  $("#minute").val(now.format("mm"));
+  $("#second").val(now.format("ss"));
+
+  // 'hour', 'minute', 'second'에 현재 시간보다 미래의 시간이 선택되면 alert 창으로 경고
+  $("#start_date, #hour, #minute, #second").change(function () {
+    const selectDate = $("#start_date").val();
+    const selectHour = $("#hour").val();
+    const selectMinute = $("#minute").val();
+    const selectSecond = $("#second").val();
+    selectDateTime = dayjs(selectDate + " " + selectHour + ":" + selectMinute + ":" + selectSecond);
+    now = dayjs();
+    if (selectDateTime.isAfter(now)) {
+      alert("현재 시간 이후로는 선택이 불가능합니다");
+      $("#start_date").val(now.format("YYYY-MM-DD"));
+      $("#hour").val(now.format("HH"));
+      $("#minute").val(now.format("mm"));
+      $("#second").val(now.format("ss"));
+      selectDateTime = now.format("YYYY-MM-DD HH:mm:ss");
+    }
+  });
+  $('#start_date').blur(function () {
+    $("#start_date").val(dayjs(selectDateTime).format("YYYY-MM-DD"));
+  });
+  $('#to_board_btn').click(onClickCancleBtn);
+  $('#register_btn').click(registerContent);
+ $('#category').change(function () { onChangeCategory($(this).val()); });
+
+})
+
+const onClickCancleBtn = () => {
+  if (confirm("등록을 취소하시겠습니까")) location.href = "/admin/content_main";
+}
+
+const fileButtonStyle = (i) => {
+  const file = fileInputElArr[i].files[0];
+  if (file != null) {
+    const fileName = file.name;
+    fileNameElArr[i].textContent = fileName;
+    fileNameElArr[i].style.display = "inline";
+    cancelElArr[i].style.display = "inline-block";
+  } else {
+    fileNameElArr[i].style.display = "none";
+    cancelElArr[i].style.display = "none";
+  }
+}
+
+//파일 등록
+const uploadFile = async (i) => {
+  const file = fileInputElArr[i].files[0];
+
+  if (file) {
+    const fileSizeInBytes = file.size;
+    const fileSizeInMB = fileSizeInBytes / (1024 * 1024);
+    const maxSizeInMB = 3;
+    if (fileSizeInMB > maxSizeInMB) {
+      alert('파일 크기가 3MB를 초과하였습니다.');
+      fileInputElArr[i].value = '';
+      return
+    }
+  }
+
+  if (fileId[i] != null) {
+    fileId[i] = null;
+    await deleteFile(fileId[i]);
+  }
+
+  fileButtonStyle(i);
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const requestOptions = {
+    method: 'POST',
+    body: formData,
+  };
+
+  try {
+    const response = await fetch(`${host}/upload`, requestOptions);
+    const { code, message, data } = await response.json();
+    if (code === 200) {
+      fileId[i] = data.file_id;
+    } else {
+      alert(message || "파일등록 오류");
+    }
+  } catch (err) {
+    alert("에러가 발생했습니다.");
+    //console.log("Err", err);
+  }
+}
+
+//컨텐츠 등록
+const registerContent = async (e) => {
+  const title = document.getElementById("title").value;
+  const content = '지금은 테스트 중입니다'
+  const reg_user = '등록자'
+  const category_id = parseInt(document.getElementById("category").value);
+  const categorySelect = document.getElementById('category');
+  const selectedIndex = categorySelect.selectedIndex;
+  const category_name = categorySelect.options[selectedIndex].text;
+  const secret_yn = document.querySelector('input[name="secret_yn"]:checked').value;
+  const password = document.getElementById('password').value;
+
+  if (!requireInput([title, category,fileId[0], selectDateTime])) {
+    return;
+  }
+
+  if (!regexTitle.test(title)) {
+    alert("제목은 국/영문, 숫자, 특수문자 최대 30자까지만 입력 가능합니다.");
+    return false;
+  }
+  if (!regexNote.test(content)) {
+    alert("비고는 국/영문, 숫자, 특수문자 최대 300자까지만 입력 가능합니다.");
+    return false;
+  }
+
+  const raw = JSON.stringify({
+    category_id,
+    category_name,
+    reg_user,
+    title,
+    content,
+    password,
+    file_1_id: fileId[0],
+    file_2_id: fileId[1],
+    file_3_id: fileId[2],
+    file_4_id: fileId[3],
+    file_5_id: fileId[4],
+    reg_date: dayjs(selectDateTime).format("YYYY-MM-DD HH:mm:ss"),
+    secret_yn
+  });
+  alert(raw)
+  const requestOptions = {
+    method: 'PUT',
+    headers: myHeaders,
+    body: raw,
+  };
+
+  try {
+    const response = await fetch(`${host}/community/update`, requestOptions);
+    const { code, message } = await response.json();
+    if (code === 200) {
+      alert("등록이 완료되었습니다.");
+      window.location.href = "/index";
+    } else {
+      alert(message || "에러가 발생했습니다.");
+    }
+  } catch (err) {
+    alert("에러가 발생했습니다.");
+    //console.log("Err", err);
+  }
+}
+  </script>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="/admin/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/admin/assets/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="/admin/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="/admin/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="/admin/assets/js/demo/datatables-demo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
+</body>
+
+</html>

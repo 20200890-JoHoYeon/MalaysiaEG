@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>말레 EG 어드민</title>
+    <link rel="shortcut icon" href="/user/assets/images/icon/admin.ico" />
+
+    <!-- Custom fonts for this template -->
+    <link
+      href="/admin/assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Styles for this page -->
+    <link href="/admin/assets/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link
+      href="/admin/assets/vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/admin/assets/css/style.css" />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+
+      <%- include('common/sidebar') %>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <%- include('common/topbar') %>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="border-bottom-primary mb-4">
+              <div class="main-title">
+                <h1 class="mb-2 text-gray-800">묻고 답하기</h1>
+              </div>
+              <h6 class="page-adress">묻고 답하기</h6>
+            </div>
+
+            <!-- DataTales -->
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">검색 필터</h6>
+
+                <!-- 검색패널 -->
+                <section class="panel mb-xs">
+                  <table class="filter-table">
+                    <tr>
+                      <td class="filter-label">등록일</td>
+                      <td>
+                        <div
+                          class="col-md-7 input-daterange input-group date-pick"
+                        >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="start_date"
+                            autocomplete="off"
+                          />
+                          <span class="input-group-addon">
+                            <i class="fa fa-calendar calender-icon"></i>
+                          </span>
+                          <span class="input-group-addon tx-icon"> ~ </span>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="end_date"
+                            autocomplete="off"
+                          />
+                          <span class="input-group-addon">
+                            <i class="fa fa-calendar calender-icon"></i>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="filter-label">답변여부</td>
+                      <td class="col-sm-9">
+                        <div class="filter-category">
+                          <label class="ckbox-inline">
+                            <input
+                              type="checkbox"
+                              class="ck category"
+                              value="1"
+                              checked
+                            />
+                            미작성
+                          </label>
+                          <label class="ckbox-inline">
+                            <input
+                              type="checkbox"
+                              class="ck category"
+                              value="2"
+                              checked
+                            />
+                            작성완료
+                          </label>
+                          <label class="ckbox-inline">
+                            <input
+                              type="checkbox"
+                              class="ck category"
+                              value="3"
+                              checked
+                            />
+                            등록완료
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="filter-label">검색어</td>
+                      <td>
+                        <div class="col-sm-12 search-input">
+                          <input
+                            placeholder="작성자, 제목으로 검색"
+                            type="text"
+                            id="keyword"
+                            class="form-control"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+                <!-- 검색패널 end -->
+
+                <div class="btn-area float-right">
+                  <a href="#" class="btn btn btn-block" id="search_btn">
+                    검색
+                  </a>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <div class="table-responsive">
+                  <div class="mb-4 admin-btn-tool tx-align-left">
+                    <div class="tool-select ib">
+                      <select
+                        id="order_select"
+                        class="form-control"
+                        name="order_select"
+                      >
+                        <option value="DESC">최신순</option>
+                        <option value="ASC">오래된순</option>
+                        <option value="EDIT">수정일 최신순</option>
+                      </select>
+                    </div>
+                  </div>
+                  <table
+                    class="table table-bordered content-table"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead>
+                      <tr>
+                        <th>NO</th>
+                        <th>작성자</th>
+                        <th>제목</th>
+                        <th>답변여부</th>
+
+                        <th>최종 수정일</th>
+                        <th>등록일</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                  <div class="row">
+                    <div class="col-sm-12 col-md-5">
+                      <div id="list_info"></div>
+                    </div>
+                  </div>
+                  <div id="pagination_container">
+                    <ul class="pagination"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Main Content -->
+        <!-- Footer -->
+        <%- include('common/footer') %>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
+    <script src="/admin/assets/js/common.js"></script>
+    <script src="/admin/assets/js/questionAnswer_main.js"></script>
+
+    <script src="/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/admin/assets/js/sb-admin-2.min.js"></script>
+    <script src="/admin/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/admin/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="/admin/assets/js/demo/datatables-demo.js"></script>
+  </body>
+</html>

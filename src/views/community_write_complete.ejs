@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('head') %>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <%- include('header') %>
+
+      <div class="container write-container">
+        <section class="page-section">
+          <div class="width">
+            <!-- 묻고 답하기 -->
+            <div data-type="community" class="community-detail">
+              <h3>묻고 답하기</h3>
+
+              <div class="field">
+                <label for="">작성일</label>
+                <span class="today reg-date"></span>
+              </div>
+
+              <div class="field">
+                <label for="">작성자</label>
+                <span class="today reg-name"></span>
+              </div>
+
+              <div class="field">
+                <label for="">제목</label>
+                <span class="today title"></span>
+              </div>
+
+              <div class="field">
+                <label for="">내용</label>
+                <div class="content"></div>
+              </div>
+
+              <div class="community-btn-area edit-mode-btn-area">
+                <a href="/community?type=qna" class="btn type04 large radius"
+                  >목록</a
+                >
+                <button
+                  type="button"
+                  class="btn large type03 radius right-btn community-del right-btn"
+                >
+                  삭제
+                </button>
+                <div class="btn type01 large radius mr16 right-btn edit-btn">
+                  수정
+                </div>
+              </div>
+
+              <div class="page-section-top answer-area">
+                <h3>답변</h3>
+
+                <div class="field">
+                  <label for="">답변일</label>
+                  <span class="today answer-date"></span>
+                </div>
+
+                <div class="field">
+                  <label for="">관리자</label>
+                  <span class="today answer-name">관리자</span>
+                </div>
+
+                <div class="field">
+                  <label for="">내용</label>
+                  <div class="answer-detail"></div>
+                </div>
+
+                <div class="community-btn-area">
+                  <a href="/community?type=qna" class="btn type04 large radius"
+                    >목록</a
+                  >
+                  <button
+                    type="button"
+                    class="btn large type03 radius community-del right-btn"
+                  >
+                    삭제
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- //묻고 답하기 -->
+
+            <!-- 설명회 요청 -->
+            <div data-type="presentation" class="community-detail">
+              <h3>설명회 요청</h3>
+
+              <div class="field">
+                <label for="">작성일</label>
+                <span class="today reg-date"></span>
+              </div>
+
+              <div class="field">
+                <label for="">기관명</label>
+                <span class="today presentation-org-name"></span>
+              </div>
+
+              <div class="field">
+                <label for="">장소</label>
+                <span class="today presentation-place"></span>
+              </div>
+
+              <div class="field">
+                <label for="">희망날짜</label>
+                <span class="today presentation-hope-date"></span>
+              </div>
+
+              <div class="field">
+                <label for="">이메일</label>
+                <span class="today email"></span>
+              </div>
+
+              <div class="field">
+                <label for="">제목</label>
+                <span class="today title"></span>
+              </div>
+
+              <div class="field">
+                <label for="">내용</label>
+                <div class="content"></div>
+              </div>
+
+              <div class="community-btn-area edit-mode-btn-area">
+                <a
+                  href="/community?type=presentation"
+                  class="btn type04 large radius"
+                  >목록</a
+                >
+                <button
+                  type="button"
+                  class="btn large type03 radius right-btn community-del right-btn"
+                >
+                  삭제
+                </button>
+                <div class="btn type01 large radius mr16 right-btn edit-btn">
+                  수정
+                </div>
+              </div>
+
+              <div class="page-section-top answer-area">
+                <h3>답변</h3>
+
+                <div class="field">
+                  <label for="">답변일</label>
+                  <span class="today answer-date"></span>
+                </div>
+
+                <div class="field">
+                  <label for="">관리자</label>
+                  <span class="today answer-name">홍길동</span>
+                </div>
+
+                <div class="field">
+                  <label for="">내용</label>
+                  <div class="answer-detail"></div>
+                </div>
+
+                <div class="community-btn-area">
+                  <a
+                    href="/community?type=presentation"
+                    class="btn type04 large radius"
+                    >목록</a
+                  >
+                  <button
+                    type="button"
+                    class="btn large type03 radius community-del right-btn"
+                  >
+                    삭제
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- //설명회 요청 -->
+
+            <!-- 참가자 리뷰 -->
+            <div data-type="review" class="community-detail">
+              <h3>참가자 리뷰</h3>
+
+              <div class="field">
+                <label for="">작성일</label>
+                <span class="today reg-date"></span>
+              </div>
+
+              <div class="field">
+                <label for="">작성자</label>
+                <span class="today reg-name"></span>
+              </div>
+
+              <div class="field">
+                <label for="">제목</label>
+                <span class="today title"></span>
+              </div>
+
+              <div class="field">
+                <label for="">링크</label>
+                <a target="_blank" class="today review-link"></a>
+              </div>
+
+              <div class="field">
+                <label for="">내용</label>
+                <div class="content"></div>
+              </div>
+
+              <div class="community-btn-area single">
+                <a href="/community?type=review" class="btn type04 large radius"
+                  >목록</a
+                >
+              </div>
+            </div>
+            <!-- //참가자 리뷰  -->
+          </div>
+        </section>
+        <%- include('footer') %>
+      </div>
+    </div>
+
+    <script src="/user/assets/js/ui.js"></script>
+    <script src="/user/assets/js/common.js"></script>
+    <script src="/user/assets/js/community/community-detail.js"></script>
+  </body>
+</html>

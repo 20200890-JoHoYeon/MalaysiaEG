@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('head') %>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <%- include('header') %>
+
+      <div class="container">
+        <div class="page-banner">
+          <h3 class="main-title">캠프 신청하기</h3>
+        </div>
+
+        <section class="page-section">
+          <div class="camp-apply-area width">
+            <h3 class="page-title">등록 및 참가 절차</h3>
+
+            <span class="step-title">STEP 01. 캠프 등록</span>
+            <img
+              src="/user/assets/images/page/camp_apply_step01.png"
+              alt=""
+              class="img-full mb16"
+            />
+
+            <span class="step-title">STEP 02. 참가 절차</span>
+            <img
+              src="/user/assets/images/page/camp_apply_step02.png"
+              alt=""
+              class="img-full"
+            />
+
+            <div class="page-section-top estimate-apply-list-area">
+              <h3 class="page-title">견적서 작성</h3>
+              <span class="essential-text"
+                >*해당 견적 금액은 비행기표 등 상담 후 결과에 따라 변동될 수
+                있습니다.</span
+              >
+
+              <div class="estimate-apply-area">
+                <h3>희망캠프</h3>
+                <div class="flex-layout radio-btn-area">
+                  <input
+                    type="radio"
+                    id="school"
+                    name="hopeCampName"
+                    value="1"
+                    checked
+                  />
+                  <label for="school" class="">
+                    <span class="radio"></span>
+                    <span class="radio-text">킹슬리 국제학교 </span>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="hotel"
+                    name="hopeCampName"
+                    value="2"
+                  />
+                  <label for="hotel" class="">
+                    <span class="radio"></span>
+                    <span class="radio-text">선웨이라군 호텔 </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="estimate-apply-area">
+                <h3>희망견적</h3>
+                <span class="essential-text"
+                  >*유치부부터 초등학교 2학년생까지는 부모님 동반으로만 신청하실
+                  수 있습니다</span
+                >
+                <div>
+                  <div class="flex-layout center gap48 field-area">
+                    <div class="field">
+                      <label for="" class="estimate-field-title"
+                        >참가형태<span class="essential">*</span></label
+                      >
+                      <select
+                        name="attendType"
+                        id="attendType"
+                        class="apply-select mo-select-width-full"
+                      >
+                        <option class="defaultOption" value="default">
+                          선택
+                        </option>
+                        <option value="1">부모님 동반</option>
+                        <option value="2">학생 단독(기숙사)</option>
+                        <option value="3">숙소제외(캠프만)</option>
+                      </select>
+                    </div>
+
+                    <div class="flex-layout field">
+                      <label for="" class="estimate-field-title"
+                        >참가기간<span class="essential">*</span></label
+                      >
+                      <div class="flex-layout radio-btn-area">
+                        <input
+                          type="radio"
+                          id="2weeks"
+                          name="attendPeriod"
+                          value="2"
+                          checked
+                        />
+                        <label for="2weeks" class="">
+                          <span class="radio"></span>
+                          <span class="radio-text">2주</span>
+                        </label>
+
+                        <input
+                          type="radio"
+                          id="4weeks"
+                          name="attendPeriod"
+                          value="4"
+                        />
+                        <label for="4weeks" class="">
+                          <span class="radio"></span>
+                          <span class="radio-text">4주 </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex-layout field-area field mo-flex-layout">
+                    <label for="" class="estimate-field-title"
+                      >학생 수<span class="essential">*</span></label
+                    >
+                    <div class="flex-layout radio-btn-area">
+                      <input
+                        type="radio"
+                        id="onePeople"
+                        name="studentCount"
+                        value="1"
+                        checked
+                      />
+                      <label for="onePeople" class="flex_layout">
+                        <span class="radio"></span>
+                        <span class="radio-text">1명</span>
+                      </label>
+
+                      <input
+                        type="radio"
+                        id="twoPeople"
+                        name="studentCount"
+                        value="2"
+                      />
+                      <label for="twoPeople" class="flex_layout">
+                        <span class="radio"></span>
+                        <span class="radio-text">2명</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="field-area flex-layout gap48">
+                    <div class="flex-layout start field mo-flex-col">
+                      <label for="" class="estimate-field-title"
+                        >학생1<span class="essential">*</span></label
+                      >
+                      <div>
+                        <select
+                          name="student1AgeGroup"
+                          id="student1AgeGroup"
+                          class="apply-select"
+                        >
+                          <option class="defaultOption" value="default">
+                            선택
+                          </option>
+                          <option value="kindergarden">유치부</option>
+                          <option value="elementary">초등</option>
+                          <option value="middle">중등</option>
+                          <option value="high">고등</option>
+                        </select>
+
+                        <select
+                          name="student1Grade"
+                          id="student1Grade"
+                          class="small"
+                        >
+                          <option>선택</option>
+                        </select>
+                        <div class="mt10" id="oneHotelYn">
+                          <input
+                            type="checkbox"
+                            id="sudent1HotelYn"
+                            name="sudent1_hotel_yn"
+                          />
+                          <label for="sudent1HotelYn" class="flex_layout">
+                            <span class="checkbox"></span>
+                            <span class="radio-text">호텔/기숙사 포함</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="flex-layout start field hidden twoStudent mo-flex-col"
+                    >
+                      <label for="" class="estimate-field-title"
+                        >학생2<span class="essential">*</span></label
+                      >
+                      <div>
+                        <select
+                          name="student2AgeGroup"
+                          id="student2AgeGroup"
+                          class="apply-select"
+                        >
+                          <option class="defaultOption" value="default">
+                            선택
+                          </option>
+                          <option value="kindergarden">유치부</option>
+                          <option value="elementary">초등</option>
+                          <option value="middle">중등</option>
+                          <option value="high">고등</option>
+                        </select>
+
+                        <select
+                          name="student2Grade"
+                          id="student2Grade"
+                          class="small"
+                        >
+                          <option>선택</option>
+                        </select>
+
+                        <div class="mt10" id="twoHotelYn">
+                          <input
+                            type="checkbox"
+                            id="sudent2HotelYn"
+                            name="sudent2_hotel_yn"
+                            value=""
+                          />
+                          <label for="sudent2HotelYn" class="flex_layout">
+                            <span class="checkbox"></span>
+                            <span class="radio-text">호텔/기숙사 포함</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="field-area flex-layout center mo-flex-layout mo-385-flex-layout"
+                  >
+                    <label for="" class="estimate-field-title">기타</label>
+                    <div class="flex-layout radio-btn-area">
+                      <input
+                        type="checkbox"
+                        id="etc"
+                        name="etc"
+                        value="2가족 룸쉐어"
+                      />
+                      <label for="etc" class="flex_layout">
+                        <span class="checkbox"></span>
+                        <span class="radio-text">2가족 룸쉐어</span>
+                      </label>
+
+                      <input
+                        type="checkbox"
+                        id="etc2"
+                        name="etc2"
+                        value="엑스트라 베드"
+                      />
+                      <label for="etc2" class="flex_layout">
+                        <span class="checkbox"></span>
+                        <span class="radio-text">엑스트라 베드</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="estimate-apply-area">
+                <h3>[말레EG] 스쿨링 캠프</h3>
+                <div>
+                  <ul class="estimate-price-area">
+                    <li>
+                      <div class="hope-camp-name-result">학생 단독(기숙사)</div>
+                      <div class="price-text hope-camp-price-result">-</div>
+                    </li>
+                    <li>
+                      <div class="attend-period-result">참가기간</div>
+                      <div class="price-text attend-period-percent-result">
+                        -
+                      </div>
+                    </li>
+                    <li>
+                      <div>학생 수</div>
+                      <div class="price-text student-count-result">-</div>
+                    </li>
+                    <li>
+                      <div>학생1</div>
+                      <div class="price-text sudent1-total-price">-</div>
+                    </li>
+                    <li>
+                      <div class="student1-off-text">
+                        학생 1 호텔/기숙사 제외
+                      </div>
+                      <div class="price-text student1-off-price-text">-</div>
+                    </li>
+                    <li>
+                      <div>학생2</div>
+                      <div class="price-text sudent2-total-price">-</div>
+                    </li>
+                    <li>
+                      <div class="student2-off-text">
+                        학생 2 호텔/기숙사 제외
+                      </div>
+                      <div class="price-text student2-off-price-text">-</div>
+                    </li>
+                    <li>
+                      <div class="ect-type-result">2가족 룸쉐어</div>
+                      <div class="price-text ect1-type-result">-</div>
+                    </li>
+                    <li>
+                      <div class="ect-type-result">엑스트라베드</div>
+                      <div class="price-text ect2-type-result">-</div>
+                    </li>
+                  </ul>
+                  <div class="estimate-total-area">
+                    <div>
+                      <span>합계금액</span>
+                      <span class="total-price">0원</span>
+                    </div>
+                    <button class="btn medium type01 radius apply-popup-open">
+                      상담 신청하기
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <%- include('footer') %>
+      </div>
+    </div>
+
+    <!-- popup -->
+    <div class="popup-wrap">
+      <div class="popup-contatiner apply-popup-container">
+        <div class="apply-popup-area popup-center">
+          <div class="popup-header-area">
+            <h3>상담신청</h3>
+            <div class="apply-popup-close"><i class="ico close"></i></div>
+          </div>
+          <div class="popup-body-area">
+            <form action="" name="campApplyForm">
+              <div class="popup-total-price-area">
+                <div>
+                  <p>[말레EG] 스쿨링 캠프</p>
+                  <ul class="select-option-list"></ul>
+                </div>
+                <div class="popup-total-price">298,000원</div>
+              </div>
+
+              <div class="field">
+                <label for=""
+                  >부모님 성함<span class="essential">*</span></label
+                >
+                <input
+                  type="text"
+                  class="input-text"
+                  name="parent_name"
+                  maxlength="30"
+                />
+              </div>
+              <div class="studentPopupMargin">
+                <div class="field">
+                  <label for=""
+                    >(학생 1) 이름<span class="essential">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="input-text"
+                    name="student1_name"
+                    maxlength="30"
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="">(학생 1) 성별</label>
+                  <div class="flex-layout radio-area">
+                    <input
+                      type="radio"
+                      id="stud1Woman"
+                      name="student1_sex"
+                      value="여"
+                      checked
+                    />
+                    <label for="stud1Woman" class="flex-layout mr16">
+                      <span class="radio"></span>
+                      <span class="radio-text">여자</span>
+                    </label>
+
+                    <input
+                      type="radio"
+                      id="stud1Man"
+                      name="student1_sex"
+                      value="남"
+                    />
+                    <label for="stud1Man" class="flex-layout">
+                      <span class="radio"></span>
+                      <span class="radio-text">남자</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="twoStudent hidden studentPopupMargin">
+                <div class="field">
+                  <label for=""
+                    >(학생 2) 이름<span class="essential">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="input-text"
+                    name="student2_name"
+                    maxlength="30"
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="">(학생 2) 성별</label>
+                  <div class="flex-layout radio-area">
+                    <input
+                      type="radio"
+                      id="stud2Woman"
+                      name="student2_sex"
+                      value="여"
+                      checked
+                    />
+                    <label for="stud2Woman" class="flex-layout mr16">
+                      <span class="radio"></span>
+                      <span class="radio-text">여자</span>
+                    </label>
+
+                    <input
+                      type="radio"
+                      id="stud2Man"
+                      name="student2_sex"
+                      value="남"
+                    />
+                    <label for="stud2Man" class="flex-layout">
+                      <span class="radio"></span>
+                      <span class="radio-text">남자</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <label for="">거주지<span class="essential">*</span></label>
+                <input
+                  type="text"
+                  class="input-text"
+                  name="addr"
+                  maxlength="30"
+                />
+              </div>
+
+              <div class="field">
+                <label for="">연락처<span class="essential">*</span></label>
+                <div class="ph-input-area">
+                  <input
+                    type="text"
+                    class="input-text"
+                    name="tel1"
+                    maxlength="3"
+                  />-
+                  <input
+                    type="text"
+                    class="input-text"
+                    name="tel2"
+                    maxlength="4"
+                  />-
+                  <input
+                    type="text"
+                    class="input-text"
+                    name="tel3"
+                    maxlength="4"
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="">이메일<span class="essential">*</span></label>
+                <div class="email-input-area">
+                  <input
+                    type="text"
+                    class="input-text"
+                    name="email1"
+                    maxlength="20"
+                  />@
+                  <input
+                    type="text"
+                    class="input-text"
+                    name="email2"
+                    maxlength="20"
+                  />
+                </div>
+              </div>
+
+              <div class="field start">
+                <label for="">비고</label>
+                <textarea
+                  name="remarks"
+                  id=""
+                  class="textarea"
+                  maxlength="300"
+                ></textarea>
+              </div>
+
+              <div class="privacy-field">
+                <label for=""
+                  >개인정보 수집 및 이용 동의<span class="essential"
+                    >*</span
+                  ></label
+                >
+                <input type="checkbox" id="argee" name="agree_YN" value="Y" />
+                <label for="argee" class="flex-layout center">
+                  <span class="checkbox"></span>
+                  <span class="radio-text">동의합니다.</span>
+                </label>
+              </div>
+
+              <div class="scroll-area">
+                <b>
+                  <말레EG>는 개인정보의 처리와 관련하여 관계 법령에 따라
+                  개인정보가 안전하게 관리될 수 있도록 필요한 사항을 규정하고
+                  있습니다.
+                </b>
+                <br /><br />
+                1. 수집 개인정보 항목<br />
+                이름, 성별, 거주지, 휴대폰 번호, 이메일 주소<br />
+                <br />
+                2. 수집 · 이용 목적<br />
+                상담을 위한 정보 제공<br />
+                <br />
+                3. 보유기간<br />
+                문의 등록 1년 후 지체 없이 파기<br />
+                <br />
+                ※ 위와 같은 개인정보 수집 동의를 거부할 수 있습니다. 다만 동의를
+                거부할 경우, 상담문의가 불가능합니다.
+              </div>
+
+              <button type="submit" class="btn type01 large radius apply-btn">
+                신청하기
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //popup -->
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="/user/assets/js/common.js"></script>
+    <script src="/user/assets/js/camp-apply.js"></script>
+    <script src="/user/assets/js/ui.js"></script>
+  </body>
+</html>

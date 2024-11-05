@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>말레 EG 어드민</title>
+    <link rel="shortcut icon" href="/user/assets/images/icon/admin.ico" />
+
+    <!-- Custom fonts for this template -->
+    <link
+      href="/admin/assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Styles for this page -->
+    <link href="/admin/assets/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link
+      href="/admin/assets/vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/admin/assets/css/style.css" />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+
+      <%- include('common/sidebar') %>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <%- include('common/topbar') %>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="border-bottom-primary mb-4">
+              <div class="main-title">
+                <h1 class="mb-2 text-gray-800">묻고 답하기 상세</h1>
+              </div>
+              <h6 class="page-adress">묻고 답하기 > 묻고 답하기 상세</h6>
+            </div>
+
+            <section role="main" class="content-body register-content-body">
+              <form
+                action="/admin/source"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <table class="detail table">
+                  <tr>
+                    <td width="20%" class="table-title-td">작성자</td>
+                    <td class="col-md-9">
+                      <input
+                        type="text"
+                        class="form-control"
+                        disabled
+                        name="reqanswer-name"
+                        id="reqanswer-name"
+                        required
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td width="20%" class="table-title-td">등록일</td>
+                    <td class="col-md-9">
+                      <input
+                        type="text"
+                        class="form-control"
+                        disabled
+                        name="reqanswer-reg_date"
+                        id="reqanswer-reg_date"
+                        required
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td width="20%" class="table-title-td">제목</td>
+                    <td class="col-md-9">
+                      <input
+                        name="reqanswer-title"
+                        class="form-control"
+                        id="reqanswer-title"
+                        disabled
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="20%" rowspan="6" class="table-title-td">내용</td>
+                  </tr>
+                  <tr id="reqanswer-fileList" class="hidden">
+                    <td width="30%" colspan="3" class="justify-content-start">
+                      <img id="file_main_id_url" class="detail_img" src="" />
+
+                      <img id="file_1_id_url" class="detail_img" src="" />
+
+                      <img id="file_2_id_url" class="detail_img" src="" />
+
+                      <img id="file_3_id_url" class="detail_img" src="" />
+
+                      <img id="file_4_id_url" class="detail_img" src="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="30%" colspan="3">
+                      <textarea
+                        style="height: 300px"
+                        class="col-md-12"
+                        id="reqanswer-content"
+                        disabled
+                      ></textarea>
+                    </td>
+                  </tr>
+                </table>
+                <hr />
+
+                <table class="detail table">
+                  <h4 class="pb-1 float-left">■ 답변 작성</h4>
+                  <div class="pb-1 float-right">
+                    <span class="star">*</span>는 필수 입력값
+                  </div>
+                  <tr>
+                    <td width="20%" class="table-title-td">
+                      답변
+                      <span class="star">*</span>
+                    </td>
+                    <td class="col-md-9">
+                      <textarea
+                        style="height: 300px"
+                        name="answer_content"
+                        class="form-control"
+                        id="answer_content"
+                        disabled
+                        value="-"
+                      ></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="20%" rowspan="5" class="table-title-td">
+                      첨부파일
+                    </td>
+                    <td width="40%" colspan="2" class="" id="aw_file">-</td>
+                  </tr>
+                  <tr>
+                    <td
+                      width="40%"
+                      colspan="2"
+                      class="border-0 hidden"
+                      id="aw_file1"
+                    >
+                      -
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      width="40%"
+                      colspan="2"
+                      class="border-0 hidden"
+                      id="aw_file2"
+                    >
+                      -
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      width="40%"
+                      colspan="2"
+                      class="border-0 hidden"
+                      id="aw_file3"
+                    >
+                      -
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      width="40%"
+                      colspan="2"
+                      class="border-0 hidden"
+                      id="aw_file4"
+                    >
+                      -
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td width="20%" class="table-title-td">최종 수정일</td>
+                    <td class="col-md-9">
+                      <input
+                        name="answer_mod_date"
+                        class="form-control"
+                        id="answer_mod_date"
+                        value="-"
+                        disabled
+                      />
+                    </td>
+                  </tr>
+                </table>
+
+                <div class="admin-btn-tool ib detail-bottom-btn">
+                  <button
+                    type="button"
+                    id="to_board_btn"
+                    class="btn btn-primary btn-100"
+                  >
+                    목록
+                  </button>
+                  <button
+                    type="button"
+                    id="send_btn"
+                    class="btn btn-primary btn-100 float-right"
+                  >
+                    업로드
+                  </button>
+                  <button
+                    type="button"
+                    id="update_btn"
+                    class="btn btn-primary btn-100 float-right mr-lg-3"
+                  >
+                    수정
+                  </button>
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+        <!-- End of Main Content -->
+        <!-- Footer -->
+        <%- include('common/footer') %>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
+    <script src="/admin/assets/js/common.js"></script>
+    <script src="/admin/assets/js/questionAnswer_detail.js"></script>
+
+    <script src="/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/admin/assets/js/sb-admin-2.min.js"></script>
+    <script src="/admin/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/admin/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="/admin/assets/js/demo/datatables-demo.js"></script>
+  </body>
+</html>

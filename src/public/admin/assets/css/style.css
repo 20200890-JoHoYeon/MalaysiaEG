@@ -1,0 +1,491 @@
+/* 공통 */
+.table td {
+  vertical-align: middle !important;
+}
+
+.ib {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.btn-area {
+  width: 150px;
+}
+
+.btn {
+  color: #fff;
+  background-color: #4e73df;
+}
+
+.btn-dark {
+  color: #fff;
+  background-color: #5a5c69;
+}
+
+.btn-100 {
+  width: 100px;
+}
+
+.tx-align-left {
+  text-align: left;
+}
+
+.tx-align-right {
+  text-align: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.detail_img {
+  object-fit: cover;
+
+  height: 100px;
+  margin: 5px 5px;
+}
+
+
+/* 사이드바 */
+.sidebar-brand-text {
+  margin: 0 1rem;
+}
+
+.nav-item-text {
+  display: inline-block !important;
+  width: 100%;
+  margin: 0 !important;
+}
+
+.nav-arrow-btn {
+  float: right;
+}
+
+/* 로그인 페이지 */
+.logout-btn {
+  border: 0;
+  background: unset;
+}
+
+.login-area {
+  height: 100vh;
+}
+
+.login-container {
+  margin: auto;
+}
+
+.bg-logo {
+  background: url(../img/header_logo.png);
+  background-position: center;
+  background-size: cover;
+  height: 90px;
+  width: 90px;
+  margin-bottom: 20px;
+}
+
+.alert-modal-body {
+  margin: 20px;
+  color: black;
+}
+
+.login-btn {
+  background: #ED7801;
+  border-color: #ED7801;
+  font-size: 1rem !important;
+  font-weight: bold;
+}
+
+.login-card-body .login-card-area {
+  flex: unset !important;
+  max-width: 100% !important;
+}
+
+.login-container {
+  flex: unset !important;
+  max-width: 480px !important;
+}
+
+.login-btn:hover {
+  color: #fff;
+}
+
+#IdPWFind {
+  color: #878787;
+}
+
+#IdPWFind:hover {
+  color: #878787;
+  text-decoration: none !important;
+}
+
+.bg-login-banner-image {
+  background: url(../img/banner_03.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-login-page-gradient-primary {
+  background-color: #fafafa;
+
+}
+
+/* 메인 리스트 */
+.content-list:hover {
+  background-color: #599cf3;
+  color: #ffffff;
+}
+
+.content-list {
+  cursor: pointer;
+}
+
+.filter-answer label {
+  margin-right: 10px;
+}
+
+#dataTable_wrapper .row .col-md-7 {
+  max-width: 100% !important;
+}
+
+.main-title {
+  display: inline-block;
+}
+
+.page-adress {
+  float: right;
+}
+
+.ckbox-inline,
+.radio-button-inline {
+  padding-right: 3rem;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.radio-button-filter {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.input-date {
+  width: 340px;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.mlr-5 {
+  margin: 0 5px;
+}
+
+.hour,
+.minute,
+.second {
+  width: 33.333333%;
+}
+
+.pagination {
+  text-align: center;
+  justify-content: center !important;
+}
+
+.align-c {
+  text-align: center;
+}
+
+.dataTables_paginate {
+  text-align: center;
+}
+
+/* 메인 검색 패널 영역 */
+.form-group {
+  display: flex;
+  align-items: center;
+}
+
+.filter-label {
+  font-weight: bold;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+
+.filter-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0px 1rem;
+  background-color: #f8f9fc;
+}
+
+.filter-table .search-input {
+  padding-right: 0 !important;
+}
+
+.filter-table td:nth-child(1) {
+  width: 15%;
+}
+
+.filter-table td:nth-child(2) {
+  width: 85%;
+}
+
+.filter-inputs {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+
+.content-table {
+  text-align: center;
+}
+
+.calender-icon {
+  padding: 10px 12px;
+  font-size: 18px;
+}
+
+.tx-icon {
+  min-width: 36px;
+  line-height: 2.2em;
+  text-align: center;
+}
+
+.datepicker table {
+  height: 200px;
+}
+
+.card-body .row {
+  display: inline-block;
+  width: 100%;
+}
+
+/* 버튼 영역 */
+
+.admin-btn-tool {
+  width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
+  clear: both;
+}
+
+.tool-select {
+  vertical-align: middle;
+  padding-right: 10px;
+}
+
+/* 등록 페이지 */
+table {
+  background: white;
+}
+
+.register-sub-title {
+  padding-top: 1rem;
+}
+
+.sub-category-tr td:nth-child(2) {
+  border-right: none;
+}
+
+.sub-category-tr {
+  border-top: 1px solid #e3e6f0;
+}
+
+.register-content-body {
+  padding-top: 1rem;
+}
+
+.star {
+  color: red;
+}
+
+.table-title-td {
+  background-color: #e9ecef;
+  text-align: center;
+  font-weight: bold;
+  vertical-align: middle !important;
+}
+
+.detail-bottom-btn {
+  margin-bottom: 1rem;
+}
+
+.detail-bottom-btn button:nth-child(2) {
+  float: right;
+}
+
+.register-content-body select {
+  width: 400px;
+}
+
+.filter-date {
+  display: flex;
+  align-items: center;
+}
+
+.file-input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.file-input-label {
+  background-color: #f1f1f1;
+  padding: 4px 6px;
+  border: 1px solid rgb(110, 110, 110);
+  cursor: pointer;
+  color: black;
+  margin-bottom: 0;
+}
+
+.file-name {
+  margin-left: 10px;
+}
+
+.file-name.hidden {
+  display: none;
+  margin-left: 10px;
+}
+
+.cancel-btn {
+  padding: 3px;
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 0.7rem;
+}
+
+.cancel-btn:hover {
+  text-decoration: none;
+}
+
+/* 컨텐츠 상세 */
+.detail.table input,
+.detail.table label,
+.detail.table textarea {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  height: 100%;
+  resize: none;
+}
+
+.radio-button-inline {
+  margin: 0;
+}
+
+.detail.table label {
+  margin-right: 1rem;
+}
+
+table tr td .tx-area {
+  min-height: 100px;
+  vertical-align: middle;
+  align-items: center;
+  display: flex;
+}
+
+.detail.table td {
+  vertical-align: middle;
+}
+
+.detail-modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.75rem;
+  border-top: 1px solid #e3e6f0;
+  border-bottom-right-radius: calc(0.3rem - 1px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
+  justify-content: center;
+}
+
+.form-control.note {
+  resize: vertical;
+  overflow: auto;
+  min-height: 80px;
+  max-height: 300px;
+}
+
+/* 답변 모달 */
+.consult-modal-dialog {
+  overflow: auto;
+}
+
+.answer-text-area {
+  height: 100px !important;
+}
+
+.reqanswer-relate-img,
+.counsel-relate-img,
+.confirm-answer-relate-img {
+  display: inline-block;
+  height: 150px;
+  width: auto;
+  object-fit: contain;
+}
+
+.counsel-relate-content,
+.reqanswer-relate-content,
+.confirm-answer-relate-content {
+  min-height: 150px;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+/* 인스타그램 */
+.insta-panel-area {
+  text-align: center;
+  padding-block: 100px;
+}
+
+.btn-insta {
+  color: #fff;
+  background-color: #4e73df;
+  border-color: #4e73df;
+  margin: 2rem 0;
+  height: 90px;
+  width: 500px;
+  font-size: 1.5em;
+}
+
+.insta_img_area img {
+  width: 250px;
+}
+
+.btn.disable {
+  background-color: gray;
+  border-color: gray;
+}
+
+.btn.disable:hover {
+  color: white;
+}
+
+.insta_reco_text_area {
+  font-size: 1.2em;
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.insta_reco_date {
+  color: red;
+  font-size: 1.2em;
+}
+
+@media (min-width: 576px) {
+  .alert-modal-dialog {
+    max-width: 350px;
+  }
+
+  .modal-dialog {
+    max-width: 50% !important;
+  }
+}

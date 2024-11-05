@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('head') %>
+    <%- include('slick_head') %>
+</head>
+
+<body>
+  <div class="wrap">
+    <%- include('header') %>
+      <div class="container">
+        <section>
+          <div class="main-banner-area">
+            <div class="main-banner-img-area">
+              <div class="swiper mainBannerSwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <picture>
+                      <source media="(max-width: 750px)" srcset="/user/assets/images/main/m_main_banner_01.png">
+                      <img src="/user/assets/images/main/main_banner_01.png" alt="" class="img-full">
+                    </picture>
+                  </div>
+                  <div class="swiper-slide">
+                    <picture>
+                      <source media="(max-width: 750px)" srcset="/user/assets/images/main/m_main_banner_02.png">
+                      <img src="/user/assets/images/main/main_banner_02.png" alt="" class="img-full">
+                    </picture>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <picture>
+                      <source media="(max-width: 750px)" srcset="/user/assets/images/main/m_main_banner_03.png">
+                      <img src="/user/assets/images/main/main_banner_03.png" alt="" class="img-full">
+                    </picture>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- <div class="swiper-next"></div>
+                <div class="swiper-prev"></div> -->
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="main-menu-info-area width">
+            <ul>
+              <li>
+                <a href="/kingsley?id=info">
+                  <img src="/user/assets/images/main/main_menu_school.png" />
+                </a>
+              </li>
+              <li>
+                <a href="/hotel">
+                  <img src="/user/assets/images/main/main_menu_hotel.png" />
+                </a>
+              </li>
+              <li>
+                <a href="/camp_life">
+                  <img src="/user/assets/images/main/main_menu_camp.png" />
+                </a>
+              </li>
+              <li>
+                <a href="/community?type=qna">
+                  <img src="/user/assets/images/main/main_menu_community.png" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section main-or-bg">
+          <div class="main-introduction-area width">
+            <div class="main-introduction-text-area">
+              <h3>WHY 말레이시아인가?</h3>
+              <p>
+                전통과 첨단이 조화롭게 역동하는<br class="introd-text-br" /> 국제도시 쿠알라룸푸르로
+                초대합니다
+              </p>
+            </div>
+
+            <ul>
+              <li>
+                <img src="/user/assets/images/main/main_info_nation.png" alt="" />
+              </li>
+              <li>
+                <img src="/user/assets/images/main/main_info_english.png" alt="" />
+              </li>
+              <li>
+                <img src="/user/assets/images/main/main_info_safety.png" alt="" />
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="main-camp-apply-area width">
+            <h3>
+              아이와 부모님 모두에게<br />“평생 기억에 남는 한 달”이 <br class="main-camp-apply-br">준비되어
+              있습니다.
+            </h3>
+            <a href="/camp_apply" class="apply-move-btn">
+              <span>캠프신청하기</span>
+              <i class="ico arrow-next white"></i>
+            </a>
+          </div>
+        </section>
+
+        <section class="page-section-bottom ">
+          <div class="main-camp-banner-area">
+            <div class="swiper main-sub-banner-swiper">
+              <div class="swiper-wrapper main-sub-banner-list slider">
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <%- include('footer') %>
+      </div>
+  </div>
+
+  <script src="/user/assets/js/ui.js"></script>
+  <script src="/user/assets/js/common.js"></script>
+  <script src="/user/assets/js/index.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="mars-sequel" />
+
+    <title>말레 EG 어드민</title>
+    <link rel="shortcut icon" href="/user/assets/images/icon/admin.ico" />
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="/admin/assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Styles for this page -->
+    <link href="/admin/assets/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="/admin/assets/css/style.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="#" />
+  </head>
+
+  <body class="bg-login-page-gradient-primary">
+    <div class="container">
+      <div class="login-area row justify-content-center">
+        <div class="login-container col-xl-10 col-lg-12 col-md-9">
+          <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="login-card-body p-0">
+              <div class="row">
+                <div class="col-lg-6 login-card-area">
+                  <div class="p-5">
+                    <div class="text-center flex justify-content-center">
+                      <div class="bg-logo"></div>
+                    </div>
+                    <form class="user">
+                      <div class="form-group">
+                        <input
+                          type="email"
+                          id="email"
+                          class="form-control form-control-user"
+                          aria-describedby="emailHelp"
+                          placeholder="아이디"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="password"
+                          id="password"
+                          class="form-control form-control-user"
+                          placeholder="비밀번호"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <div class="custom-control custom-checkbox small">
+                          <input
+                            type="checkbox"
+                            id="is_auto"
+                            name="is_auto"
+                            class="custom-control-input"
+                          />
+                          <label class="custom-control-label" for="is_auto">
+                            로그인 유지
+                          </label>
+                        </div>
+                      </div>
+                      <a
+                        id="login_btn"
+                        class="login-btn btn btn-user btn-block"
+                      >
+                        로그인
+                      </a>
+                    </form>
+                    <hr />
+                    <div class="text-center">
+                      <a id="IdPWFind" class="small" href="#"
+                        >아이디/비밀번호찾기</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/admin/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/admin/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/admin/assets/js/sb-admin-2.min.js"></script>
+    <script src="/admin/assets/js/common.js"></script>
+    <script>
+      const idInput = document.getElementById("email");
+      const pwdInput = document.getElementById("password");
+      const loginBtn = document.getElementById("login_btn");
+      const IdPWFind = document.getElementById("IdPWFind");
+
+      const checkEnter = (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          onClickLogin();
+        }
+      };
+
+      const onClickLogin = async () => {
+        const id = idInput.value;
+        const pwd = pwdInput.value;
+        let isAuto = false;
+
+        if (id.trim() === "") {
+          alert("아이디를 다시 입력해주세요");
+          idInput.focus();
+          return;
+        }
+        if (pwd.trim() === "") {
+          alert("비밀번호를 다시 입력해주세요");
+          pwdInput.focus();
+          return;
+        }
+
+        if (document.querySelector('input[name="is_auto"]:checked') != null) {
+          isAuto = true;
+        }
+
+        const raw = JSON.stringify({
+          id,
+          pwd,
+          isAuto,
+        });
+
+        const mymyHeaders = new Headers();
+        mymyHeaders.append("Content-Type", "application/json");
+
+        const requestOptions = {
+          method: "POST",
+          headers: mymyHeaders,
+          body: raw,
+        };
+
+        try {
+          const response = await fetch(`${host}/user/login`, requestOptions);
+          const { code, message, data } = await response.json();
+
+          if (code === 200) {
+            sessionStorage.setItem("username", data.name);
+            sessionStorage.setItem("userid", data.id);
+
+            window.location.href = "/admin/gallery_main";
+            return;
+          }
+          if (message === "패스워드가 틀립니다.") {
+            alert("비밀번호를 다시 입력해주세요");
+            pwdInput.focus();
+            return;
+          }
+          if (message === "유저를 찾을 수 없습니다.") {
+            alert("관리자 정보가 없습니다.");
+            return;
+          }
+          alert(message || "로그인에 실패했습니다.");
+        } catch (err) {
+          alert("에러가 발생했습니다.");
+        }
+      };
+
+      const onClickIdPWFind = async () => {
+        alert("ssarok@nate.com으로 아이디와 비밀번호를 전송했습니다.");
+
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+        };
+
+        try {
+          const response = await fetch(
+            `${host}/admin/find_user`,
+            requestOptions
+          );
+          const { code, message, data } = await response.json();
+
+          if (code === 200) {
+            return;
+          }
+        } catch (err) {
+          alert("에러가 발생했습니다.");
+        }
+      };
+
+      idInput.addEventListener("keydown", checkEnter);
+      pwdInput.addEventListener("keydown", checkEnter);
+      loginBtn.addEventListener("click", onClickLogin);
+      IdPWFind.addEventListener("click", onClickIdPWFind);
+    </script>
+  </body>
+</html>

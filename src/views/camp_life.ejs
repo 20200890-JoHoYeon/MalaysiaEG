@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('head') %>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <%- include('header') %>
+
+      <div class="container">
+        <div class="page-banner">
+          <h3 class="main-title">캠프 생활엿보기</h3>
+        </div>
+
+        <div class="width page-section">
+          <ul class="tab type01 gallery-tab">
+            <li id="0" class="active">전체</li>
+            <li id="1">캠퍼스 생활</li>
+            <li id="2">체육/특별 활동</li>
+            <li id="3">현지 라이프</li>
+          </ul>
+        </div>
+
+        <section class="page-section-bottom">
+          <div class="camp-life-area width">
+            <ul class="camp-life-list-area"></ul>
+          </div>
+
+          <div class="list-more-btn-area">
+            <button id="camp-life-more-btn" class="list-more-btn">
+              더보기&nbsp;&nbsp;&nbsp;+
+            </button>
+          </div>
+        </section>
+
+        <%- include('footer') %>
+      </div>
+    </div>
+
+    <!-- popup -->
+    <div class="popup-wrap img-popup-area">
+      <div class="popup-contatiner">
+        <div class="popup-center">
+          <div class="popup_total_area page-num">
+            <span class="popup_turn">1</span>
+            <span>/</span>
+            <span class="popup_total">5</span>
+          </div>
+          <div class="popup-close"><i class="ico close white"></i></div>
+          <div class="popup-body-area gallery-img-detail-area">
+            <div class="swiper imgSwiper">
+              <div class="swiper-wrapper gallery-img-swiper-wrapper"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //popup -->
+
+    <script src="/user/assets/js/ui.js"></script>
+    <script src="/user/assets/js/common.js"></script>
+    <script src="/user/assets/js/gallery.js"></script>
+  </body>
+</html>

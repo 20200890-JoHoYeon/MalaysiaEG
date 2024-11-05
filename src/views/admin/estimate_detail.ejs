@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>말레 EG 어드민</title>
+    <link rel="shortcut icon" href="/user/assets/images/icon/admin.ico" />
+
+    <!-- Custom fonts for this template -->
+    <link
+      href="/admin/assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Styles for this page -->
+    <link href="/admin/assets/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link
+      href="/admin/assets/vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/admin/assets/css/style.css" />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+
+      <%- include('common/sidebar') %>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <%- include('common/topbar') %>
+          <!-- End of Topbar -->
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="border-bottom-primary mb-4">
+              <div class="main-title">
+                <h1 class="mb-2 text-gray-800">견적내역 상세</h1>
+              </div>
+              <h6 class="page-adress">견적내역 관리 > 견적내역 상세</h6>
+            </div>
+
+            <section role="main" class="content-body register-content-body">
+              <form id="uploadForm" method="post" enctype="multipart/form-data">
+                <div class="row">
+                  <div class="col-md-6">
+                    <table class="table table-bordered">
+                      <h6>■ 견적 정보</h6>
+                      <tr>
+                        <td width="20%" class="table-title-td">희망캠프</td>
+                        <td
+                          width="80%"
+                          colspan="3"
+                          id="reqanswer-hope_camp_name"
+                        ></td>
+                      </tr>
+
+                      <tr>
+                        <td width="20%" class="table-title-td">참가형태</td>
+                        <td width="30%" id="reqanswer-attend_type"></td>
+                        <td width="20%" class="table-title-td">참가기간</td>
+                        <td width="30%" id="reqanswer-attend_period"></td>
+                      </tr>
+                      <tr>
+                        <td width="20%" class="table-title-td">학생1</td>
+                        <td width="30%" id="reqanswer-student1_age_group"></td>
+                        <td width="20%" class="table-title-td">
+                          호텔/기숙사 포함
+                        </td>
+                        <td width="30%" id="reqanswer-student1_hotel_yn"></td>
+                      </tr>
+                      <tr>
+                        <td width="20%" class="table-title-td">학생2</td>
+                        <td width="30%" id="reqanswer-student2_age_group"></td>
+                        <td width="20%" class="table-title-td">
+                          호텔/기숙사 포함
+                        </td>
+                        <td width="30%" id="reqanswer-student2_hotel_yn"></td>
+                      </tr>
+                      <tr>
+                        <td width="20%" class="table-title-td">기타</td>
+                        <td width="30%" colspan="3">
+                          <span id="reqanswer-etc"></span>
+                          <span id="etcBar"></span>
+                          <span id="reqanswer-etc2"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          width="20%"
+                          colspan="4"
+                          class="table-title-td text-right"
+                        >
+                          합계금액 <span id="reqanswer-price_total"></span>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <table class="table table-bordered">
+                      <h6>■ 신청자 기본 정보</h6>
+                      <tr>
+                        <td width="20%" class="table-title-td">부모님 성함</td>
+                        <td
+                          width="80%"
+                          colspan="3"
+                          id="reqanswer-parent_name"
+                        ></td>
+                      </tr>
+
+                      <tr>
+                        <td width="20%" class="table-title-td">학생1</td>
+                        <td width="30%" id="reqanswer-student1_name">홍길동</td>
+                        <td width="20%" class="table-title-td">성별</td>
+                        <td width="30%" id="reqanswer-student1_sex"></td>
+                      </tr>
+                      <tr>
+                        <td width="20%" class="table-title-td">학생2</td>
+                        <td width="30%" id="reqanswer-student2_name"></td>
+                        <td width="20%" class="table-title-td">성별</td>
+                        <td width="30%" id="reqanswer-student2_sex"></td>
+                      </tr>
+                      <tr>
+                        <td width="20%" class="table-title-td">거주지</td>
+                        <td width="30%" id="reqanswer-addr"></td>
+                        <td width="20%" class="table-title-td">연락처</td>
+                        <td width="30%" id="reqanswer-tel"></td>
+                      </tr>
+                      <tr>
+                        <td width="20%" class="table-title-td">이메일</td>
+                        <td width="30%" id="reqanswer-email"></td>
+                        <td width="20%" class="table-title-td">개인정보수집</td>
+                        <td width="30%" id="reqanswer-agree_YN"></td>
+                      </tr>
+                      <tr>
+                        <td width="20%" class="table-title-td">비고</td>
+                        <td width="80%" colspan="3" id="reqanswer-remarks"></td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="col-md-6">
+                    <table class="detail table">
+                      <h4 class="pb-1 float-left">■ 답변 작성</h4>
+                      <div class="pb-1 float-right">
+                        <span class="star">*</span>는 필수 입력값
+                      </div>
+                      <tr>
+                        <td width="20%" class="table-title-td">
+                          답변
+                          <span class="star">*</span>
+                        </td>
+                        <td class="col-md-9">
+                          <textarea
+                            disabled
+                            class="col-md-12"
+                            style="border: none; height: 300px"
+                            name="answer_content"
+                            id="reqanswer-answer_content"
+                          ></textarea>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="20%" rowspan="6" class="table-title-td">
+                          첨부파일
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td width="30%" colspan="3" id="aw_file1">-</td>
+                      </tr>
+                      <tr>
+                        <td
+                          width="30%"
+                          colspan="3"
+                          id="aw_file2"
+                          class="hidden"
+                        >
+                          -
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          width="30%"
+                          colspan="3"
+                          id="aw_file3"
+                          class="hidden"
+                        >
+                          -
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          width="30%"
+                          colspan="3"
+                          id="aw_file4"
+                          class="hidden"
+                        >
+                          -
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          width="30%"
+                          colspan="3"
+                          id="aw_file5"
+                          class="hidden"
+                        >
+                          -
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="admin-btn-tool ib detail-bottom-btn">
+                  <button
+                    type="button"
+                    id="to_board_btn"
+                    class="btn btn-primary btn-100"
+                  >
+                    목록
+                  </button>
+                  <button
+                    type="button"
+                    id="send_btn"
+                    class="btn btn-primary btn-100 float-right"
+                  >
+                    전송
+                  </button>
+                  <button
+                    type="button"
+                    id="update_btn"
+                    class="btn btn-primary btn-100 float-right mr-lg-3"
+                  >
+                    수정
+                  </button>
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+        <!-- End of Main Content -->
+        <!-- Footer -->
+        <%- include('common/footer') %>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
+    <script src="/admin/assets/js/common.js"></script>
+    <script src="/admin/assets/js/estimate_detail.js"></script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/admin/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/admin/assets/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="/admin/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/admin/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/admin/assets/js/demo/datatables-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+  </body>
+</html>

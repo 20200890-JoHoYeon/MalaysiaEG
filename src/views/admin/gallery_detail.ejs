@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>말레 EG 어드민</title>
+    <link rel="shortcut icon" href="/user/assets/images/icon/admin.ico" />
+
+    <!-- Custom fonts for this template -->
+    <link
+      href="/admin/assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Styles for this page -->
+    <link href="/admin/assets/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link
+      href="/admin/assets/vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/admin/assets/css/style.css" />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+
+      <%- include('common/sidebar') %>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <%- include('common/topbar') %>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="border-bottom-primary mb-4">
+              <div class="main-title">
+                <h1 class="mb-2 text-gray-800">갤러리 상세</h1>
+              </div>
+              <h6 class="page-adress">갤러리 관리 > 갤러리 상세</h6>
+            </div>
+
+            <!-- Page Heading -->
+
+            <section role="main" class="content-body detail-content-body">
+              <form
+                action="/admin/source"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <h6 class="float-right">
+                  <span class="star">*</span>
+                  는 필수 입력값
+                </h6>
+
+                <h4 class="register-sub-title">■ 갤러리 기본정보</h4>
+                <table class="detail table">
+                  <tr>
+                    <td width="20%" class="table-title-td">
+                      카테고리<span class="star">*</span>
+                    </td>
+                    <td width="30%">
+                      <input
+                        name="gallery_category_name"
+                        id="gallery_category_name"
+                        readonly
+                      />
+                    </td>
+                    <td width="20%" class="table-title-td">
+                      노출여부<span class="star">*</span>
+                    </td>
+                    <td width="30%">
+                      <div class="col-md-9 filter-inputs">
+                        <div class="filter-answer">
+                          <label class="radio-button-filter">
+                            <input
+                              type="radio"
+                              class="rb exposure y"
+                              name="exposure_yn"
+                              value="Y"
+                              disabled
+                            />
+                            Y
+                          </label>
+                          <label class="radio-button-filter">
+                            <input
+                              type="radio"
+                              class="rb exposure n"
+                              name="exposure_yn"
+                              value="N"
+                              disabled
+                            />
+                            N
+                          </label>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- <tr class="sub-category-tr hidden">
+                    <td width="20%" class="table-title-td">
+                      카테고리 중분류<span class="star">*</span>
+                    </td>
+                    <td width="30%">
+                      <input name="sub_category" id="sub_category" disabled />
+                    </td>
+                  </tr> -->
+                  <tr>
+                    <td width="20%" class="table-title-td">
+                      제목<span class="star">*</span>
+                    </td>
+                    <td width="30%" colspan="3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="제목"
+                        disabled
+                        name="title"
+                        id="title"
+                        required
+                      />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td width="20%" class="table-title-td">
+                      형식<span class="star">*</span>
+                    </td>
+                    <td width="30%" colspan="3">
+                      <input name="form-filter" id="type" value="" disabled />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td width="20%" class="table-title-td">
+                      등록일<span class="star">*</span>
+                    </td>
+                    <td width="30%" id="reg_date"></td>
+                    <td width="20%" class="table-title-td">수정일</td>
+                    <td width="30%" id="mod_date"></td>
+                  </tr>
+                </table>
+
+                <h4 id="register-sub-title" class="register-sub-title">
+                  ■ 이미지 등록
+                </h4>
+                <table id="imageForm" class="detail table table-bordered">
+                  <tr>
+                    <td width="20%" class="table-title-td">
+                      대표 이미지<span class="star">*</span>
+                      <div>(최대 1개)</div>
+                    </td>
+                    <td width="40%" colspan="2" id="file_main_url"></td>
+                  </tr>
+                  <tr>
+                    <td width="20%" rowspan="4" class="table-title-td">
+                      추가 이미지
+                      <div>(최대 4개)</div>
+                    </td>
+                    <td width="5%" class="align-c">1</td>
+                    <td width="95%" id="file_1_url"></td>
+                  </tr>
+                  <tr>
+                    <td width="5%" class="align-c">2</td>
+                    <td width="95%" id="file_2_url"></td>
+                  </tr>
+                  <tr>
+                    <td width="5%" class="align-c">3</td>
+                    <td width="95%" id="file_3_url"></td>
+                  </tr>
+                  <tr>
+                    <td width="5%" class="align-c">4</td>
+                    <td width="95%" id="file_4_url"></td>
+                  </tr>
+                </table>
+
+                <table id="videoForm" class="detail table table-bordered">
+                  <tr>
+                    <td width="20%" rowspan="4" class="table-title-td">
+                      URL <span class="star">*</span>
+                    </td>
+
+                    <td width="80%" colspan="2">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="video_url"
+                        id="video_url"
+                        value="a"
+                        disabled
+                        required
+                      />
+                    </td>
+                  </tr>
+                </table>
+
+                <h4 class="register-sub-title">■ 기타 정보</h4>
+                <table class="detail table table-bordered">
+                  <tr>
+                    <td width="20%" class="table-title-td">비고</td>
+                    <td width="80%" colspan="2">
+                      <textarea
+                        class="form-control note"
+                        disabled
+                        id="note"
+                      ></textarea>
+                    </td>
+                  </tr>
+                </table>
+
+                <div class="col-md-3 admin-btn-tool ib detail-bottom-btn"></div>
+
+                <div class="admin-btn-tool ib detail-bottom-btn">
+                  <button
+                    type="button"
+                    id="to_board_btn"
+                    class="btn btn-primary btn-100"
+                  >
+                    목록
+                  </button>
+                  <button
+                    type="button"
+                    id="update_btn"
+                    class="btn btn-primary btn-100 float-right"
+                  >
+                    수정
+                  </button>
+                  <button
+                    type="button"
+                    id="delete_btn"
+                    class="btn btn-primary btn-100 float-right mr-lg-3"
+                  >
+                    삭제
+                  </button>
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+        <!-- End of Main Content -->
+        <!-- Footer -->
+        <%- include('common/footer') %>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
+    <script src="/admin/assets/js/common.js"></script>
+    <script src="/admin/assets/js/gallery_detail.js"></script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/admin/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/admin/assets/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="/admin/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/admin/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/admin/assets/js/demo/datatables-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+  </body>
+</html>

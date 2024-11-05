@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('head') %> <%- include('data_picker_head') %>
+</head>
+
+<body>
+  <div class="wrap">
+    <%- include('header') %>
+
+      <div class="container write-container">
+        <section class="page-section">
+          <div class="width">
+            <!--묻고 답하기 -->
+            <div data-type="qna" class="community-write-qna">
+              <h3>묻고 답하기 작성</h3>
+              <form action="" name="qnaForm">
+                <input type="hidden" name="category_id" value="1" />
+                <div class="field">
+                  <label for="">작성일</label>
+                  <span class="today community-write-date">2023-10-25 00:00:00</span>
+                </div>
+
+                <div class="field">
+                  <label for="">비밀번호<span class="essential">*</span></label>
+                  <div>
+                    <input type="password" maxlength="4" minlength="4" class="community-write-pwd-input input-text mb10"
+                      name="password" autocomplete="off" />
+                    <span class="color-red">*비밀번호는 4자리 숫자로 설정해 주세요.</span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="">작성자<span class="essential">*</span></label>
+                  <input type="text" class="input-text" maxlength="30" name="reg_user" />
+                </div>
+
+                <div class="field">
+                  <label for="">제목<span class="essential">*</span></label>
+                  <input type="text" class="input-text" maxlength="50" name="title" />
+                </div>
+
+                <div class="field">
+                  <label for="">내용<span class="essential">*</span></label>
+                  <textarea id="" name="content" class="textarea" maxlength="1500" placeholder="내용을 입력해 주세요"></textarea>
+                </div>
+
+                <div class="field">
+                  <label for="">이미지</label>
+                  <ul class="picUpload-list">
+                    <li>
+                      <input type="file" id="uploadPic_1" name="" accept=".jpg, .jpeg, .png" title="이미지 선택"
+                        class="uploadPic" />
+                      <label for="uploadPic_1" class="btnUpload"></label>
+                    </li>
+                    <li>
+                      <input type="file" id="uploadPic_2" name="" accept=".jpg, .jpeg, .png" title="이미지 선택"
+                        class="uploadPic" />
+                      <label for="uploadPic_2" class="btnUpload"></label>
+                    </li>
+                    <li>
+                      <input type="file" id="uploadPic_3" name="" accept=".jpg, .jpeg, .png" title="이미지 선택"
+                        class="uploadPic" />
+                      <label for="uploadPic_3" class="btnUpload"></label>
+                    </li>
+                    <li>
+                      <input type="file" id="uploadPic_4" name="" accept=".jpg, .jpeg, .png" title="이미지 선택"
+                        class="uploadPic" />
+                      <label for="uploadPic_4" class="btnUpload"></label>
+                    </li>
+                    <li>
+                      <input type="file" id="uploadPic_5" name="" accept=".jpg, .jpeg, .png" title="이미지 선택"
+                        class="uploadPic" />
+                      <label for="uploadPic_5" class="btnUpload"></label>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="btn-area">
+                  <button type="submit" class="btn type01 large radius">
+                    등록
+                  </button>
+                  <button type="button" class="btn large type03 radius community-cancel">
+                    취소
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!--//묻고 답하기 -->
+
+            <!-- 설명회 요청 -->
+            <div data-type="presentation" class="community-write-qna">
+              <h3>설명회 요청 작성</h3>
+              <form action="" name="presentationForm">
+                <input type="hidden" name="category_id" value="2" />
+                <div class="field">
+                  <label for="">작성일</label>
+                  <span class="today community-write-date"></span>
+                </div>
+
+                <div class="field">
+                  <label for="">비밀번호<span class="essential">*</span></label>
+                  <div>
+                    <input type="password" maxlength="4" minlength="4" name="password"
+                      class="community-write-pwd-input input-text mb10" autocomplete="off" />
+                    <span class="color-red">*비밀번호는 4자리 숫자로 설정해 주세요.</span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="">기관명<span class="essential">*</span></label>
+                  <input type="text" class="input-text" name="presentation_org_name" maxlength="30" />
+                </div>
+
+                <div class="field">
+                  <label for="">장소<span class="essential">*</span></label>
+                  <input type="text" class="input-text" name="presentation_place" maxlength="30" />
+                </div>
+
+                <div class="field">
+                  <label for="">희망날짜<span class="essential">*</span></label>
+                  <input type="text" id="datepicker" name="presentation_hope_date" class="input-text" />
+                </div>
+
+                <div class="field">
+                  <label for="">이메일<span class="essential">*</span></label>
+                  <div class="email-input-area">
+                    <input type="text" class="input-text" name="email_user" maxlength="20" />
+                    @
+                    <input type="text" class="input-text" name="email_domain" maxlength="20" />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="">제목<span class="essential">*</span></label>
+                  <input type="text" class="input-text" name="title" maxlength="50" />
+                </div>
+
+                <div class="field">
+                  <label for="">내용<span class="essential">*</span></label>
+                  <textarea id="" class="textarea" name="content" maxlength="1500" placeholder="내용을 입력해 주세요"></textarea>
+                </div>
+
+                <div class="field">
+                  <label for="">이미지</label>
+                  <ul class="picUpload-list">
+                    <li>
+                      <input type="file" id="uploadPic_6" name="uploadPic" class="uploadPic" accept=".jpg, .jpeg, .png"
+                        title="이미지 선택" />
+                      <label for="uploadPic_6" class="btnUpload"></label>
+                    </li>
+                    <li>
+                      <input type="file" id="uploadPic_7" name="uploadPic" class="uploadPic" accept=".jpg, .jpeg, .png"
+                        title="이미지 선택" />
+                      <label for="uploadPic_7" class="btnUpload"></label>
+                    </li>
+                    <li>
+                      <input type="file" id="uploadPic_8" name="uploadPic" class="uploadPic" accept=".jpg, .jpeg, .png"
+                        title="이미지 선택" />
+                      <label for="uploadPic_8" class="btnUpload"></label>
+                    </li>
+                    <li>
+                      <input type="file" id="uploadPic_9" name="uploadPic" class="uploadPic" accept=".jpg, .jpeg, .png"
+                        title="이미지 선택" />
+                      <label for="uploadPic_9" class="btnUpload"></label>
+                    </li>
+                    <li>
+                      <input type="file" id="uploadPic_10" name="uploadPic" class="uploadPic" accept=".jpg, .jpeg, .png"
+                        title="이미지 선택" />
+                      <label for="uploadPic_10" class="btnUpload"></label>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="btn-area">
+                  <button type="submit" class="btn type01 large radius">
+                    등록
+                  </button>
+                  <button type="button" class="btn large type03 radius community-cancel">
+                    취소
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- //설명회 요청 -->
+          </div>
+          <!-- <input type="text" id="datepicker" class="form-control" name="writeday" value="" /> -->
+        </section>
+
+        <%- include('footer') %>
+      </div>
+  </div>
+
+  <script src="/user/assets/js/ui.js"></script>
+  <script src="/user/assets/js/common.js"></script>
+  <script src="/admin/assets/js/common.js"></script>
+  <script src="/user/assets/js/community/community-write.js"></script>
+  <script src="/user/assets/js/date-picker.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('head') %>
+</head>
+
+<body>
+    <div class="wrap">
+        <%- include('header') %>
+
+            <div class="container">
+                <div class="page-banner">
+                    <p class="sub-title">영국 Cambridge 커리큘럼의 국제학교</p>
+                    <h3 class="main-title">킹슬리 국제학교</h3>
+                </div>
+
+                <div class="width page-section">
+                    <ul class="tab type01">
+                        <li id="introduction" class="active">킹슬리 국제학교 소개</li>
+                        <li id="guide">프로그램 안내</li>
+                    </ul>
+                </div>
+
+                <!-- 소개 -->
+                <section>
+                    <div data-tab="introduction" class="width tab-content kingsley-introduction-area active">
+                        <h3 class="page-content-title">국제적인 다양성과 풍부한 학문적, <br class="introduction-br-600">문화적 경험을 제공합니다
+                        </h3>
+                        <p class="page-content-explanation">
+                            2011년 설립된 메이플리프 킹슬리 국제학교는 <br class="introduction-br-600">영국 Cambridge 커리큘럼의 국제학교로<br>
+                            유치원~13학년(Cambridge A레벨과정)까지 운영되고 있습니다.<br class="introduction-br">
+                            재학생은 약 1,400명이며, 학생구성은 말레이시아 중국계, 인도계<br class="introduction-br">
+                            그리고 20여 개국의 다국적 학생들이 재학중에 있습니다.
+
+                        </p>
+
+                        <div class="page-section">
+                            <div class="page-sub-banner">
+                                <h3 class="main-title">킹슬리 국제학교의 구성 </h3>
+                                <p class="sub-title">학생들을 담당하고 있는 교사진은 원어민 교사(30%)와 <br class="introduction-br">현지인
+                                    교사(70%)로 구성되어 있습니다.<br>
+                                    학교시설은 2015년에 완공 및 이전, 기숙사는 2019년 완공되어 <br class="introduction-br">모든 시설이 현대적이고
+                                    훌륭합니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="kingsley-intro-area page-section-bottom width small">
+                            <!-- <img src="/user/assets/images/page/kingsley_school_composition.png" alt="" class="img-full"> -->
+                            <picture>
+                                <source media="(max-width: 600px)"
+                                    srcset="/user/assets/images/page/kingsley_school_composition_mo.png">
+                                <img src="/user/assets/images/page/kingsley_school_composition.png" alt=""
+                                    class="img-full">
+                            </picture>
+
+                        </div>
+
+                    </div>
+                </section>
+                <!-- //소개 -->
+
+                <!-- 프로그램 안내 -->
+                <section>
+                    <div data-tab="guide" class="width tab-content  kingsley-guide-area">
+                        <div class="program-area">
+                            <div class="grid-layout">
+                                <div class="img-area">
+                                    <img src="/user/assets/images/page/kingsley_img.png" alt="">
+                                </div>
+
+                                <div class="program-overview">
+                                    <h3 class="page-title">프로그램 개요</h3>
+                                    <ul class="list type01">
+                                        <li>
+                                            <div class="left-title">캠프 기간 </div>
+                                            <div class="right-text">2023년 12월 31일 ~ 2024년 6월 1일</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-title">캠프 장소</div>
+                                            <div class="right-text">말레이시아</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-title">캠프 대상</div>
+                                            <div class="right-text">모든 사람</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-title">참가 비용</div>
+                                            <div class="right-text">500,000원</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-title">포함 내역</div>
+                                            <div class="right-text">식사, 숙소</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-title">불포함 내역</div>
+                                            <div class="right-text">개인비용</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-title">숙박 형태</div>
+                                            <div class="right-text">호텔</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-title">인솔 교사</div>
+                                            <div class="right-text">홍길동</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="schedule-area page-section">
+                                <h3 class="page-title">시간표</h3>
+                                <div class="schedule-category-area">
+                                    <ul id="scheduleTabAge" class="tab type02">
+                                        <li data-age="5" class="active">5세</li>
+                                        <li data-age="6">6세</li>
+                                        <li data-age="7">7세</li>
+                                    </ul>
+                                    <select name="scheduleTabGroup" id="scheduleTabGroup">
+                                        <option value="kindergarden">유치부</option>
+                                        <option value="elementary">초등</option>
+                                        <option value="middle">중등</option>
+                                        <option value="high">고등</option>
+                                    </select>
+                                </div>
+                                <img id="scheduleImage" src="/user/assets/images/schedule/kindergarten.jpg" alt="">
+
+                            </div>
+
+                            <div class="grid-layout center">
+                                <div class="img-area img-slice-area">
+                                    <img src="/user/assets/images/page/physical_activity.jpg" alt="">
+                                </div>
+                                <div class="physical-activity-area">
+                                    <h3 class="page-title">체육/특별활동</h3>
+                                    <span>학생 개개인의 관심사 개발을 통한 창의성과 혁신의 문</span>
+                                    <ul class="ul-style-disc">
+                                        <li> Maple Leaf Kingsley Internation School은 학생들이 자신의 능력을 시험할 수 있는 다양한 클럽과 동아리를
+                                            제공합니다.</li>
+                                        <li>운동 능력, 체력 및 훌륭한 스포츠맨십을 개발할 수 있습니다.</li>
+                                        <li>규칙적인 피트니스 루틴 외에도 ECA를 위한 다양한 운동 및 스포츠 활동 중에서 선택할 수 있습니다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <div class="physical-activity-table-area page-section">
+                                <h3 class="page-title">체육/특별활동 종목표</h3>
+                                <img src="/user/assets/images/page/physical_activity_table.jpg" alt="" class="img-full">
+                            </div>
+
+                            <div class="grid-layout center">
+                                <div class="img-area img-slice-area">
+                                    <img src="/user/assets/images/page/dormitory.jpg" alt="">
+                                </div>
+                                <div class="physical-activity-area">
+                                    <h3 class="page-title">기숙사</h3>
+                                    <span>다국적 친구들과의 협동심, 연대감 ….그리고 우정 </span>
+                                    <ul class="ul-style-disc">
+                                        <li>2019년 완공된 기숙사는 여러 나라의 학생들이 연대감과 협동심, 그리고 우정을 함양하는 공동체의 산 교육장입니다. </li>
+                                        <li>2인 1실로 배정된 공간에서 휴식과 여가생활을 함께하며 친구들과 교류하며 큰 성장의 자산이 될 수 있습니다. </li>
+                                        <li>현지 사감선생님들과 한국인 멘토 선생님들이 24시간 상주하며 학생들의 생활을 도와 주고, 첨단 보안시스템이 안전을 책임집니다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="physical-activity-table-area page-section">
+                                <h3 class="page-title">기숙사 스케줄표</h3>
+                                <img src="/user/assets/images/page/dormitory_schedule.png" alt="" class="img-full ">
+                            </div>
+
+                            <div class="page-section-bottom menu-schedule-area">
+                                <h3 class="page-title">식단표</h3>
+                                <ul class="ul-style-disc">
+                                    <li>명문 국제학교 답게 아이들의 영양과 취향을 고려한 수준 높은 식단이 제공됩니다. </li>
+                                    <li>말레이시아 현지 음식은 물론, 양식과 중식 등 다양한 메뉴를 현지의 신선한 제철 재료를 이용하여 조리합니다. </li>
+                                    <li>유치부를 포함한 모든 학년의 학생들에게 조식, 중식, 석식( 유치부 제외)이 제공되며, 3학년 이상 기숙사에 생활하는 학생들에게는 매일 저녁
+                                        다양한 간식도 제공하고 있습니다. </li>
+                                </ul>
+                                <img src="/user/assets/images/menu/menu_schedule_1.jpg" alt="" class="img-full ">
+                                <img src="/user/assets/images/menu/menu_schedule_2.jpg" alt="" class="img-full ">
+                            </div>
+
+
+
+
+                        </div>
+
+                    </div>
+                </section>
+                <!-- //프로그램 안내 -->
+
+                <%- include('footer') %>
+            </div>
+    </div>
+
+    <script src="/user/assets/js/ui.js"></script>
+    <script src="/user/assets/js/common.js"></script>
+
+</body>
+
+</html>
